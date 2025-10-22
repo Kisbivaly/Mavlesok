@@ -1,18 +1,51 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(3, 0, 41);
   margin: 0rem;
   overflow: hidden;
+  color: #ffffff; /* make default text white */
+}
+
+/* Top and bottom orange bars */
+.page-bar-top,
+.page-bar-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 10vh; /* top and bottom bars are 10% of viewport height */
+  background: linear-gradient(90deg, #ff8a00, #ff6600);
+  z-index: 9999;
+}
+.page-bar-top { top: 0; display:flex; align-items:center; justify-content:center; }
+.page-bar-bottom { bottom: 0; }
+
+/* Logo in the center of the top bar */
+.page-bar-top .logo {
+  display: block;
+  height: 6vh; /* fixed relative to viewport so it becomes noticeably smaller */
+  max-height: 6vh;
+  width: auto;
+}
+
+@media (max-width: 480px) {
+  .page-bar-top .logo { height: 4vh; max-height:4vh; }
+}
+
+/* Ensure page content is not hidden behind the bars */
+main, #image-track {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  box-sizing: border-box;
 }
 
 #image-track {
   display: flex;
-  gap: 2px; /* ensure no space between items */
+  gap: 0; /* ensure no space between items */
   height: 50%;
   position: absolute;
   left: 50%;
-  top: 60%;
+  top: 50%;
   transform: translate(0%, -50%); 
   user-select: none; /* -- Prevent image highlighting -- */
 }
@@ -45,8 +78,8 @@ body {
 .below-caption {
   display: inline-block;
   margin-top: 0.6rem;
-  color: #111;
-  background: rgba(255,255,255,0.95);
+  color: #fff;
+  background: rgba(0,0,0,0.45);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 0.95rem;
@@ -60,7 +93,7 @@ body {
 .below-caption:focus {
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-  background: rgba(255,255,255,1);
+  background: rgba(255,255,255,0.06);
   outline: none;
 }
 @media (max-width: 800px) {
