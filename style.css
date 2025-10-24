@@ -19,11 +19,27 @@ a {
   left: 0;
   right: 0;
   height: 10vh; /* top and bottom bars are 10% of viewport height */
-  background: linear-gradient(90deg, #ff8a00, #ff6600);
+  background: #ff6600;
   z-index: 9999;
 }
 .page-bar-top { top: 0; display:flex; align-items:center; justify-content:center; }
 .page-bar-bottom { bottom: 0; }
+
+/* --- ÚJ: középső csík --- */
+.page-bar-middle {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40vh; /* állítható: középső csík magassága */
+  background: rgb(0, 0, 128);
+  z-index: 1; /* csökkentve: a képek legyenek fölötte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* ha szeretné, hogy a csík ne blokkolja a kattintásokat */
+}
 
 /* Logo in the center of the top bar */
 .page-bar-top .logo {
@@ -35,6 +51,7 @@ a {
 
 @media (max-width: 480px) {
   .page-bar-top .logo { height: 4vh; max-height:4vh; }
+  .page-bar-middle { height: 5vh; }
 }
 
 /* Ensure page content is not hidden behind the bars */
@@ -53,6 +70,7 @@ main, #image-track {
   top: 50%;
   transform: translate(0%, -50%); 
   user-select: none; /* -- Prevent image highlighting -- */
+  z-index: 2; /* biztosítja, hogy a képek a középső csík fölött legyenek */
 }
 #image-track > .image {
   object-fit: cover;
