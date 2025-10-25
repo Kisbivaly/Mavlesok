@@ -38,7 +38,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* ha szeretné, hogy a csík ne blokkolja a kattintásokat */
+  pointer-events: none; /* ne blokkolja a dotokat / érintéseket */
 }
 
 /* Logo in the center of the top bar */
@@ -63,7 +63,7 @@ main, #image-track {
 
 #image-track {
   display: flex;
-  gap: 0; /* ensure no space between items */
+  gap: 1rem; /* add some space between items */
   height: 50%;
   position: absolute;
   left: 50%;
@@ -71,6 +71,10 @@ main, #image-track {
   transform: translate(0%, -50%); 
   user-select: none; /* -- Prevent image highlighting -- */
   z-index: 2; /* biztosítja, hogy a képek a középső csík fölött legyenek */
+  /* mobilhoz: engedélyezzük a natív vízszintes görgetést ha szükséges */
+  overflow-x: visible;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 #image-track > .image {
   object-fit: cover;
@@ -80,17 +84,21 @@ main, #image-track {
 /* Make each item a uniform height and contain the image */
 .image-item {
   height: 28vh; /* uniform height for all images; adjust as needed */
+  width: auto;
+  min-width: 0; /* prevent overflow */
   display: flex;
   flex-direction: column; /* stack image then caption */
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden; /* crop any overflow when scaling */
-  margin: 0; /* remove spacing so images touch */
+  overflow: visible; /* changed from hidden to prevent cropping */
+  margin: 0 1rem; /* add horizontal margin */
   flex: 0 0 auto; /* don't grow/shrink unexpectedly */
+  padding: 1rem 0; /* add some vertical padding */
 }
 
 .image-item .image {
-  height: calc(100% - 3rem); /* leave space for caption below */
+  max-width: 100%; /* ensure image fits container */
+  height: calc(100% - 4rem); /* increased space for caption */
   width: auto; /* preserve aspect ratio */
   object-fit: contain; /* letterbox if aspect ratios differ */
   transition: transform 300ms cubic-bezier(.2,.8,.2,1), filter 300ms;
@@ -120,6 +128,46 @@ main, #image-track {
   outline: none;
 }
 @media (max-width: 800px) {
-  #image-track {left: 50%; transform: translate(-50%, -50%); gap: 0; }
-  .image-item { width: 72vw; }
+  /* mobil-táblagép: középre igazítás, görgethetőség, nagyobb képek */
+  #image-track {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 0;
+    overflow-x: auto; /* engedjük a natív vízszintes görgetést */
+    height: 70vh; /* increased track height */
+    /*padding: 2rem 0; /* added vertical padding */
+  }
+  .image-item {
+    width: 72vw;
+    height: 50vh; /* increased height */
+    padding: 1.5rem 0; /* more padding on mobile */
+  }
+  .page-bar-top,
+  .page-bar-bottom {
+    height: 8vh;
+  }
+  .page-bar-middle { height: 5.5vh; }
+}
+
+@media (max-width: 480px) {
+  /* kis telefonok: még nagyobb képek, kevesebb sávmagasság */
+  #image-track {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 0;
+    overflow-x: auto;
+    height: 75vh; /* even more height on small screens */
+    padding: 3rem 0; /* more padding on small screens */
+  }
+  .image-item {
+    width: 85vw;
+    height: 55vh; /* increased height for small screens */
+    padding: 2rem 0; /* more padding on small screens */
+  }
+  .page-bar-top,
+  .page-bar-bottom {
+    height: 7vh;
+  }
+  .page-bar-top .logo { height: 4vh; max-height:4vh; }
+  .page-bar-middle { height: 4.5vh; }
 }
