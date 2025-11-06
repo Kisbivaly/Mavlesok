@@ -133,44 +133,54 @@ main, #image-track {
   .desktop-only { display: none; }
   .mobile-only { display: block; }
 
-  /* mobile track (függőleges lista) */
+  /* mobile track -> vízszintes, lapozható sor */
   .mobile-track {
     position: absolute;
     left: 0;
     right: 0;
     top: calc(10vh); /* alatt a top sávnak */
     bottom: calc(10vh); /* fölött a bottom sávnak */
-    overflow-y: auto;
+    overflow-x: auto;           /* vízszintes görgetés */
+    overflow-y: hidden;         /* ne legyen függőleges görgetés */
     -webkit-overflow-scrolling: touch;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;        /* sorban egymás mellett */
     gap: 1rem;
-    padding: 1rem;
+    /* helyezd középre az első és utolsó elemet - padding-inline számolva az item szélességből */
+    padding-block: 1rem;
+    padding-inline: calc((100vw - 85vw) / 2);
     box-sizing: border-box;
     z-index: 2;
+    scroll-snap-type: x mandatory; /* snap a tételekhez */
+    touch-action: pan-x;
+    align-items: center; /* vertikális középre igazítás a track-en belül */
   }
 
   .mobile-item {
-    width: 100%;
+    width: 85vw;               /* az egyes tételek szélessége (ne legyen egyszerre minden látható) */
+    flex: 0 0 85vw;            /* fix szélesség a görgetéshez */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;   /* kép és caption középre rendezése */
     background: rgba(255,255,255,0.02);
     border-radius: 8px;
     padding: 0.5rem;
+    scroll-snap-align: center; /* középre igazodjon lapozáskor */
   }
 
   .mobile-item img {
     width: 100%;
     height: auto;
-    max-height: 55vh;
+    max-height: 60vh;
     object-fit: contain;
     display: block;
     border-radius: 6px;
+    margin: 0 auto; /* biztosítsa a vízszintes középre igazítást */
   }
 
   /* kisebb caption stílus mobilon */
-  .mobile-item .below-caption { margin-top: 0.5rem; font-size: 0.95rem; }
+  .mobile-item .below-caption { margin-top: 0.5rem; font-size: 0.95rem; text-align: center; }
 
   /* kisebb sávok mobilon */
   .page-bar-top, .page-bar-bottom { height: 7vh; }
