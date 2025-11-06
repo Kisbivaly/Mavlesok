@@ -18,33 +18,58 @@
 
   <!-- ÚJ: középső csík -->
 
-
-  <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-    <div class="image-item">
-      <img class="image" src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" />
-      <a class="below-caption" href="vonat1.html">Vonat 1 — rövid leírás vagy link</a>
-    </div>
-    
-    <div class="image-item">
-      <img class="image" src="./kepek/vonat2.svg" alt="Vonat 2" draggable="false" />
-      <a class="below-caption" href="vonat2.html">Vonat 2 — plusz információ</a>
-    </div>
-
-    <div class="image-item">
-      <img class="image" src="./kepek/vonat3.svg" alt="Vonat 3" draggable="false" />
-      <a class="below-caption" href="vonat3.html">Vonat 3 — további szöveg</a>
-    </div>
-
-    <div class="image-item">
-      <img class="image" src="./kepek/kissvonat1.svg" alt="Vonat 3" draggable="false" />
-      <a class="below-caption" href="vonat3.html">Vonat 3 — további szöveg</a>
-    </div>
-
-    <div class="image-item">
-      <img class="image" src="./kepek/kissvonat2.svg" alt="Vonat 3" draggable="false" />
-      <a class="below-caption" href="vonat3.html">Vonat 3 — további szöveg</a>
+  <!-- Desktop nézet (eredeti vízszintes track) -->
+  <div class="desktop-only">
+    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+      <div class="image-item">
+        <img class="image" src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" />
+        <a class="below-caption" href="vonat1.html">Vonat 1 — rövid leírás vagy link</a>
+      </div>
+      <div class="image-item">
+        <img class="image" src="./kepek/vonat2.svg" alt="Vonat 2" draggable="false" />
+        <a class="below-caption" href="vonat2.html">Vonat 2 — plusz információ</a>
+      </div>
+      <div class="image-item">
+        <img class="image" src="./kepek/vonat3.svg" alt="Vonat 3" draggable="false" />
+        <a class="below-caption" href="vonat3.html">Vonat 3 — további szöveg</a>
+      </div>
+      <div class="image-item">
+        <img class="image" src="./kepek/kissvonat1.svg" alt="Kis vonat 1" draggable="false" />
+        <a class="below-caption" href="vonat4.html">Kis vonat 1</a>
+      </div>
+      <div class="image-item">
+        <img class="image" src="./kepek/kissvonat2.svg" alt="Kis vonat 2" draggable="false" />
+        <a class="below-caption" href="vonat5.html">Kis vonat 2</a>
+      </div>
     </div>
   </div>
+
+  <!-- Mobil nézet: más elrendezés (függőleges, könnyebb lapozás) -->
+  <div class="mobile-only">
+    <div id="image-track-mobile" class="mobile-track" data-prev-percentage="0">
+      <div class="mobile-item">
+        <a href="vonat1.html"><img src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" /></a>
+        <a class="below-caption" href="vonat1.html">Vonat 1 — rövid leírás</a>
+      </div>
+      <div class="mobile-item">
+        <a href="vonat2.html"><img src="./kepek/vonat2.svg" alt="Vonat 2" draggable="false" /></a>
+        <a class="below-caption" href="vonat2.html">Vonat 2 — plusz információ</a>
+      </div>
+      <div class="mobile-item">
+        <a href="vonat3.html"><img src="./kepek/vonat3.svg" alt="Vonat 3" draggable="false" /></a>
+        <a class="below-caption" href="vonat3.html">Vonat 3 — további szöveg</a>
+      </div>
+      <div class="mobile-item">
+        <a href="vonat4.html"><img src="./kepek/kissvonat1.svg" alt="Kis vonat 1" draggable="false" /></a>
+        <a class="below-caption" href="vonat4.html">Kis vonat 1</a>
+      </div>
+      <div class="mobile-item">
+        <a href="vonat5.html"><img src="./kepek/kissvonat2.svg" alt="Kis vonat 2" draggable="false" /></a>
+        <a class="below-caption" href="vonat5.html">Kis vonat 2</a>
+      </div>
+    </div>
+  </div>
+
   <div class="page-bar-middle" aria-hidden="true"></div>
   <div class="page-bar-bottom"></div>
   <script src="script.js"></script>
