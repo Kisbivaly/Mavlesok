@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vonat 2</title>
-  <link rel="stylesheet" href="style.css">
+  <title>A MÁV késik – ahogy mindig</title>
+  <link rel="stylesheet" href="vonat.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -14,10 +14,51 @@
   <div class="page-bar-top">
     <a href="index.html" aria-label="Galéria kezdőlap"><img class="logo" src="./kepek/logo.svg" alt="Logo"></a>
   </div>
-  <main style="padding:2rem; font-family: sans-serif;">
-    <h1>Vonat 2</h1>
-    <p>Itt egy részletes oldal a Vonat 2-ről. Vissza: <a href="index.html">Galéria</a></p>
-  </main>
+
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>A MÁV késik – ahogy mindig</h1>
+        <p class="muted">A vonatok mindennapos késéseinek ironikus áttekintése.</p>
+        <hr>
+      </header>
+
+      <section id="bevezetes">
+        <p>Van, amihez az ember hozzászokik. A reggeli kávé, a forgalmi dugó, és persze: hogy a MÁV késik. Már nem is lep meg, ha a kijelzőn a „5 perc” lassan „15”-re nő, mint egy rossz vicc, amit minden nap újra elmesélnek.</p>
+      </section>
+
+      <section id="idojaras">
+        <h2>Az időjárásra hivatkozva?</h2>
+        <p>Sokáig próbáltam megfejteni, miért. Talán az időjárás?</p>
+
+        <p>Sem a napi középhőmérséklet:</p>
+        <figure>
+          <img src="./kepek/kozeph.png" alt="Középhőmérséklet grafikon">
+          <figcaption>Kép forrás: <a href="https://vonat-keses.hu/" target="_blank" rel="noopener">vonat-keses.hu</a></figcaption>
+        </figure>
+
+        <p>Sem a csapadék mennyisége:</p>
+        <figure>
+          <img src="./kepek/chart.png" alt="Csapadék grafikon">
+          <figcaption>Kép forrás: <a href="https://vonat-keses.hu/" target="_blank" rel="noopener">vonat-keses.hu</a></figcaption>
+        </figure>
+
+        <p>Sem a szélsebesség:</p>
+        <figure>
+          <img src="./kepek/chart(1).png" alt="Szélsebesség grafikon">
+          <figcaption>Kép forrás: <a href="https://vonat-keses.hu/" target="_blank" rel="noopener">vonat-keses.hu</a></figcaption>
+        </figure>
+      </section>
+
+      <section id="kovetkeztetes">
+        <p>Egy dolog viszont biztos: mindig késnek egy kicsit. És ha egy vonat sokat késik, a többiek mintha szolidaritásból követnék. Csúcsidőben pedig, amikor mindenki időben szeretne beérni, a késés is csúcsra jár – Isaszegen átlagosan 3 perc 13 másodpercre.</p>
+
+        <p>Talán ez a rendszer stabilitásának jele: ha semmi sem változik, legalább a késés kiszámítható.</p>
+      </section>
+
+    </div>
+  </div>
+
   <div class="page-bar-bottom"></div>
 </body>
 </html>
