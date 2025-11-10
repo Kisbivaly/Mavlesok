@@ -10,6 +10,34 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const firstImage = document.querySelector(".mobile-item img");
+  const allImages = document.querySelectorAll(".mobile-item img");
+
+  if (firstImage && allImages.length > 0) {
+    // Várjuk, hogy az első kép teljesen betöltődjön
+    firstImage.onload = () => {
+      const width = firstImage.clientWidth;
+      const height = firstImage.clientHeight;
+
+      allImages.forEach(img => {
+        img.style.width = width + "px";
+        img.style.height = height + "px";
+        img.style.objectFit = "contain";
+        img.style.display = "block";
+        img.style.margin = "0 auto";
+      });
+    };
+
+    // Ha már cache-ből betöltődött (pl. újratöltésnél)
+    if (firstImage.complete) {
+      firstImage.onload();
+    }
+  }
+});
+</script>
+
 <body>
 
   <div class="page-bar-top">
@@ -23,6 +51,10 @@
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
       <div class="image-item">
         <img class="image" src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" />
+        <a class="below-caption" href="vonat5.html">Friss Hireink</a>
+      </div>
+      <div class="image-item">
+        <img class="image" src="./kepek/vonat2.svg" alt="Vonat 1" draggable="false" />
         <a class="below-caption" href="vonat1.html">Magyar vonatok — rövid ismertetők</a>
       </div>
       <div class="image-item">
@@ -44,7 +76,11 @@
   <div class="mobile-only">
     <div id="image-track-mobile" class="mobile-track" data-prev-percentage="0">
       <div class="mobile-item">
-        <a href="vonat1.html"><img src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" /></a>
+        <a href="vonat5.html"><img src="./kepek/vonat1.svg" alt="Vonat 1" draggable="false" /></a>
+        <a class="below-caption" href="vonat5.html">Friss híreink</a>
+      </div>
+      <div class="mobile-item">
+        <a href="vonat1.html"><img src="./kepek/vonat2.svg" alt="Vonat 1" draggable="false" /></a>
         <a class="below-caption" href="vonat1.html">Magyar vonatok — rövid ismertetők</a>
       </div>
       <div class="mobile-item">
